@@ -11,6 +11,15 @@ blueprint:
                 - switch
                 - light
               multiple: true
+    entrada_delay:
+      name: Tempo de atraso
+      description: Defina o tempo de delay após a operação
+      default: 500
+      selector:
+        number:
+          min: 0
+          max: 10000
+          unit_of_measurement: mili segundos
 
 trigger:
   platform: state
@@ -30,6 +39,6 @@ action:
       hours: 0
       minutes: 0
       seconds: 0
-      milliseconds: 500
+      milliseconds: !input entrada_delay
 
 mode: single
